@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Route::get('/genders', 'GenderController@index')->name('gendersIndex');
+//Route::get('/genders/create', 'GenderController@create')->name('gendersCreate');
+
+Route::resource('genders', 'GenderController');
