@@ -15,10 +15,10 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-//Route::get('/genders', 'GenderController@index')->name('gendersIndex');
-//Route::get('/genders/create', 'GenderController@create')->name('gendersCreate');
-
 Route::resource('genders', 'GenderController')->middleware('auth');
+
+Route::resource('movies', 'MovieController')->middleware('auth');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

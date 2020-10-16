@@ -1,5 +1,5 @@
 <div class="form-group">
-    <label for="name" class="control-label">Nombre:</label>
+    <label for="name" class="control-label">Name:</label>
     <input type="text" name="name" id="name" class="form-control {{$errors->has('name')?'is-invalid':''}}" value="{{ isset($gender->name)?$gender->name:old('name') }}">
     {!! $errors->first('name','<div class="invalid-feeback">:message</div>') !!}
 </div>

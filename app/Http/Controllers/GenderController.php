@@ -52,7 +52,7 @@ class GenderController extends Controller
         $this->validate($request, $fields, $message);
 
         $dataGender = request()->except('_token');
-
+        $dataGender['created_at'] =new \DateTime();
         Gender::insert($dataGender);
 
         return redirect('genders')->with('message', 'The gender was saved successfully');
@@ -107,9 +107,6 @@ class GenderController extends Controller
 
         $dataGender = request()->except(['_token', '_method']);
         Gender::where('id', '=', $id)->update($dataGender);
-
-        //$gender = Gender::findOrFail($id);
-        //return view('genders.edit', compact('gender'));
 
         return redirect('genders')->with('message', 'The gender has been successfully updated');
     }

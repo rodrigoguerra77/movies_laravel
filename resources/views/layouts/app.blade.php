@@ -35,6 +35,9 @@
                     <ul class="navbar-nav mr-auto">
 
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('movies.index') }}">{{ __('Movies') }}</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('genders.index') }}">{{ __('Genders') }}</a>
                         </li>
 
