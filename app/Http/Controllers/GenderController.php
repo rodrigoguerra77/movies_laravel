@@ -39,7 +39,18 @@ class GenderController extends Controller
     public function store(Request $request)
     {
         //
-        //$dataGender = request()->all();
+        $fields = [
+            'name' => 'required|string|unique:genders|max:100'
+        ];
+        $message = [
+            'required' => 'The: attribute is required.',
+            'string' => 'The: attribute is of type text.',
+            'max' => 'The: attribute has a maximum of 100 characters.',
+            'unique' => 'The: attribute is unique.'
+        ];
+
+        $this->validate($request, $fields, $message);
+
         $dataGender = request()->except('_token');
 
         Gender::insert($dataGender);
@@ -82,6 +93,18 @@ class GenderController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $fields = [
+            'name' => 'required|string|max:100'
+        ];
+        $message = [
+            'required' => 'The: attribute is required.',
+            'string' => 'The: attribute is of type text.',
+            'max' => 'The: attribute has a maximum of 100 characters.',
+            'unique' => 'The: attribute is unique.'
+        ];
+
+        $this->validate($request, $fields, $message);
+
         $dataGender = request()->except(['_token', '_method']);
         Gender::where('id', '=', $id)->update($dataGender);
 

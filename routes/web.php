@@ -12,10 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 //Route::get('/genders', 'GenderController@index')->name('gendersIndex');
 //Route::get('/genders/create', 'GenderController@create')->name('gendersCreate');
 
-Route::resource('genders', 'GenderController');
+Route::resource('genders', 'GenderController')->middleware('auth');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
