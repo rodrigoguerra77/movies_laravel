@@ -10,4 +10,8 @@ class Movie extends Model
     public function gender() {
         return $this->belongsTo('App\Gender');
     }
+
+    public function users() {
+        return $this->belongsToMany('App\User');
+    }
 }

@@ -22,3 +22,7 @@ Route::resource('movies', 'MovieController')->middleware('auth');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/home/like/{movie}', 'HomeController@like')->name('like');
+
+Route::get('/home/dont-like/{movie}', 'HomeController@dontLike')->name('dont-like');
